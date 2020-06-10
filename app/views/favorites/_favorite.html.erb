@@ -1,0 +1,12 @@
+
+<div class="favorite-link" id="favorite-link-<%= book.id %>">
+	<% if current_user.favorites.find_by(book_id: book.id) %>
+		<%= link_to destroy_path(book.id), method: :delete, remote: true do %>
+			<div class = "iine_button">❤️<%= book.favorites.count %></div>
+		<% end %>
+	<% else %>
+		<%= link_to create_path(book.id), method: :post, remote: true do %>
+			<div class = "iine_button">♡️<%= book.favorites.count %></div>
+		<% end %>
+	<% end %>
+</div>
